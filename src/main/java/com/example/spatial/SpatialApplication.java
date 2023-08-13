@@ -4,17 +4,46 @@ package com.example.spatial;
 import com.example.spatial.sol.SolutionGeoDesic;
 import com.google.maps.internal.PolylineEncoding;
 import com.google.maps.model.LatLng;
-import lombok.extern.slf4j.Slf4j;
 
 import java.time.Duration;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
 
 //@SpringBootApplication
-@Slf4j
+
 public class SpatialApplication {
+//
+//
+//    public static boolean isPointOnGeodesicPolyline(LatLng point, List<LatLng> polyline, double toleranceMeters) {
+//        CRSFactory crsFactory = new CRSFactory();
+//        CoordinateReferenceSystem crs = crsFactory.createFromParameters("EPSG:4326", "+proj=longlat +datum=WGS84 +no_defs");
+//
+//        GeodeticCalculator calculator = new GeodeticCalculator(crs);
+//
+//        ProjCoordinate start = new ProjCoordinate(polyline.get(0).lng, polyline.get(0).lat);
+//
+//        for (int i = 1; i < polyline.size(); i++) {
+//            LatLng endLatLng = polyline.get(i);
+//            ProjCoordinate end = new ProjCoordinate(endLatLng.lng, endLatLng.lat);
+//
+//            double distance = calculateGeodesicDistance(calculator, start, end, point);
+//
+//            if (distance <= toleranceMeters) {
+//                return true;
+//            }
+//
+//            start = end;
+//        }
+//
+//        return false;
+//    }
+//
+//    private static double calculateGeodesicDistance(GeodeticCalculator calculator, ProjCoordinate start, ProjCoordinate end, LatLng point) {
+//        ProjCoordinate pointCoord = new ProjCoordinate(point.getLng(), point.getLat());
+//        calculator.setStartingGeographicPoint(start);
+//        calculator.setDestinationGeographicPoint(end);
+//        return ProjectionUtils.distance(calculator.getStartingGeographicPoint(), pointCoord);
+//    }
+
 
     public static void main(String[] args) {
 //        Solution1.validatePointOnPolyLine();
@@ -46,36 +75,36 @@ public class SpatialApplication {
         LatLng pointToCheck = new LatLng(wrongLat, wrongLng);
         long start = System.nanoTime();
         int locationIndexOnEdgeOrPath = SolutionGeoDesic.locationIndexOnEdgeOrPath(pointToCheck, polylinePoints, false, true, 100);
-        log.info("point on polyline " + locationIndexOnEdgeOrPath);
-        log.info("difference : {} ", Duration.ofNanos(System.nanoTime() - start).getNano());
+        System.out.println("point on polyline " + locationIndexOnEdgeOrPath);
+        System.out.println("difference : {} " +  Duration.ofNanos(System.nanoTime() - start).getNano());
 
         start = System.nanoTime();
         locationIndexOnEdgeOrPath = SolutionGeoDesic.locationIndexOnEdgeOrPath(pointToCheck, polylinePoints, false, true, 100);
-        log.info("point on polyline " + locationIndexOnEdgeOrPath);
-        log.info("difference : {} ", Duration.ofNanos(System.nanoTime() - start).getNano());
+        System.out.println("point on polyline " + locationIndexOnEdgeOrPath);
+        System.out.println("difference : {} " +  Duration.ofNanos(System.nanoTime() - start).getNano());
+//        log.info("point on polyline " + locationIndexOnEdgeOrPath);
+//        log.info("difference : {} ", Duration.ofNanos(System.nanoTime() - start).getNano());
 
         start = System.nanoTime();
         locationIndexOnEdgeOrPath = SolutionGeoDesic.locationIndexOnEdgeOrPath(pointToCheck, polylinePoints, false, true, 100);
-        log.info("point on polyline " + locationIndexOnEdgeOrPath);
-        log.info("difference : {} ", Duration.ofNanos(System.nanoTime() - start).getNano());
+        System.out.println("point on polyline " + locationIndexOnEdgeOrPath);
+        System.out.println("difference : {} " +  Duration.ofNanos(System.nanoTime() - start).getNano());
 
         start = System.nanoTime();
         locationIndexOnEdgeOrPath = SolutionGeoDesic.locationIndexOnEdgeOrPath(pointToCheck, polylinePoints, false, true, 100);
-        log.info("point on polyline " + locationIndexOnEdgeOrPath);
-        log.info("difference : {} ", Duration.ofNanos(System.nanoTime() - start).getNano());
+        System.out.println("point on polyline " + locationIndexOnEdgeOrPath);
+        System.out.println("difference : {} " +  Duration.ofNanos(System.nanoTime() - start).getNano());
 
         start = System.nanoTime();
         locationIndexOnEdgeOrPath = SolutionGeoDesic.locationIndexOnEdgeOrPath(pointToCheck, polylinePoints, false, true, 100);
-        log.info("point on polyline " + locationIndexOnEdgeOrPath);
-        log.info("difference : {} ", Duration.ofNanos(System.nanoTime() - start).getNano());
+        System.out.println("point on polyline " + locationIndexOnEdgeOrPath);
+        System.out.println("difference : {} " +  Duration.ofNanos(System.nanoTime() - start).getNano());
 
         start = System.nanoTime();
         locationIndexOnEdgeOrPath = SolutionGeoDesic.locationIndexOnEdgeOrPath(pointToCheck, polylinePoints, false, true, 100);
-        log.info("point on polyline " + locationIndexOnEdgeOrPath);
-        log.info("difference : {} ", Duration.ofNanos(System.nanoTime() - start).getNano());
+        System.out.println("point on polyline " + locationIndexOnEdgeOrPath);
+        System.out.println("difference : {} " +  Duration.ofNanos(System.nanoTime() - start).getNano());
     }
-
-
 
 
 }

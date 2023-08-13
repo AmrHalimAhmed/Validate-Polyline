@@ -1,9 +1,6 @@
 package com.example.spatial.sol;
 
-import com.google.maps.model.LatLng;
-import net.sf.geographiclib.Geodesic;
-import net.sf.geographiclib.GeodesicData;
-import net.sf.geographiclib.GeodesicLine;
+
 
 import java.util.List;
 

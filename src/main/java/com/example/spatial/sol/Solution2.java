@@ -12,6 +12,7 @@ import org.locationtech.spatial4j.shape.ShapeFactory;
 import org.locationtech.spatial4j.shape.impl.PointImpl;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Slf4j
 public class Solution2 {
@@ -35,7 +36,7 @@ public class Solution2 {
         List<Point> polylinePoints = PolylineEncoding.decode(polylineEncodedData)
                 .stream()
                 .map(latLng -> shapeFactory.pointXY(latLng.lng, latLng.lat))
-                .toList();
+                .collect(Collectors.toList());
 
         // Convert Spatial4j points to JTS Coordinate array
         Coordinate[] jtsCoords = new Coordinate[polylinePoints.size()];
