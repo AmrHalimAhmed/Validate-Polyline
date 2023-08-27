@@ -3,7 +3,7 @@ package com.example.spatial.sol;
 import com.google.maps.model.LatLng;
 import java.util.*;
 import static java.lang.Math.*;
-import static java.lang.Math.PI;
+
 
 public class SolutionGeoDesic {
 
